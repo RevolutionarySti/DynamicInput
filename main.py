@@ -16,7 +16,7 @@ connect.execute(
 	email TEXT, city TEXT, country TEXT, phone TEXT)')
 
 
-@app.route('templates\join.html', methods=['GET', 'POST'])
+@app.route('/join', methods=['GET', 'POST'])
 def join():
 	if request.method == 'POST':
 		name = request.form['name']
@@ -36,7 +36,7 @@ def join():
 		return render_template('join.html')
 
 
-@app.route('templates\participants.html')
+@app.route('/participants')
 def participants():
 	connect = sqlite3.connect('database.db')
 	cursor = connect.cursor()
